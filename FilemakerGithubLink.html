@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Open FileMaker Record</title>
+  <script>
+    (function() {
+      // Get URL parameter "projectID"
+      const params = new URLSearchParams(window.location.search);
+      const projectID = params.get('projectID');
+
+      if (projectID) {
+        // Construct FileMaker URL
+        const fmURL = `FMP://fms.inghamdrains.org/APA?script=Find_APA_Permit&param=${projectID}&$variablename=APA_Project_ID`;
+
+        // Redirect to FileMaker
+        window.location.replace(fmURL);
+      } else {
+        document.body.innerHTML = "<p>No projectID provided in the URL.</p>";
+      }
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting to FileMaker...</p>
+</body>
+</html>
