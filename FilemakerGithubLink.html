@@ -15,6 +15,12 @@
 
         // Redirect to FileMaker
         window.location.replace(fmURL);
+
+        // Close the tab after 3 seconds
+        setTimeout(function() {
+          window.close();
+        }, 3000);
+
       } else {
         document.body.innerHTML = "<p>No Project_ID provided in the URL.</p>";
       }
